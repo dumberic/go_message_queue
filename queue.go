@@ -3,7 +3,7 @@ package queue
 type Queue struct {
 	size    int      `队列大小`
 	maxSize int      `队列最大值`
-	queue   []string `任意数据`
+	queue   []string `队列数据`
 }
 
 func (this *Queue) Push(s string) {
