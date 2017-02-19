@@ -1,4 +1,4 @@
-package Queue
+package gmq
 
 import (
 	"time"
