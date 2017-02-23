@@ -11,6 +11,7 @@ type Queue struct {
 
 type Message struct {
 	Id      string
+	Name    string
 	Time    time.Time
 	Message string
 }
@@ -69,6 +70,18 @@ func (this *Queue) FindById(id string) (index int, msg Message) {
 	}
 	for k, v := range this.queue {
 		if v.Id == id {
+			return k, this.queue[k : k+1][0]
+		}
+	}
+	return -1, msg
+}
+
+func (this *Queue) FindByName(name string) (index int, msg Message) {
+	if this.size <= 0 {
+		return -1, msg
+	}
+	for k, v := range this.queue {
+		if v.Name == name {
 			return k, this.queue[k : k+1][0]
 		}
 	}
