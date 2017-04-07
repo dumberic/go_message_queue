@@ -93,6 +93,9 @@ func (this *Queue) DeleteById(id string) int {
 		return -1
 	}
 	var index, _ = this.FindById(id)
+	if index < 0 {
+		return -1
+	}
 	this.queue = append(this.queue[:index], this.queue[index+1:]...)
 	this.size = this.size - 1
 	return index
